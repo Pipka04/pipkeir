@@ -1,19 +1,46 @@
+/* --- Кастомная полоса прокрутки (Скроллбар) --- */
+/* Сама дорожка, по которой ползет ползунок */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #08070b;
+}
+/* Сам ползунок */
+::-webkit-scrollbar-thumb {
+    background: #a855f7;
+    border-radius: 10px;
+    border: 2px solid #08070b; /* Небольшой отступ, чтобы выглядело аккуратно */
+}
+/* Ползунок при наведении мыши */
+::-webkit-scrollbar-thumb:hover {
+    background: #c084fc;
+    box-shadow: 0 0 15px #a855f7;
+}
+
 /* Общие настройки */
 body {
     margin: 0;
     padding: 0;
-    background-color: #08070b; /* Очень темный, почти черный */
+    background-color: #08070b;
     color: #fff;
     font-family: 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
 }
 
 /* Шапка сайта */
 .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px 40px;
     background: rgba(8, 7, 11, 0.8);
     border-bottom: 1px solid #1c1a24;
+}
+
+/* Левая часть шапки: лого + язык */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .logo {
@@ -23,9 +50,39 @@ body {
 }
 
 .logo span {
-    color: #a855f7; /* Тот самый фиолетовый неоновый */
+    color: #a855f7;
 }
 
+/* Стили переключателя языков */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #475569;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: #475569;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 2px 5px;
+    transition: 0.3s;
+}
+
+.lang-btn:hover {
+    color: #94a3b8;
+}
+
+.lang-btn.active {
+    color: #a855f7;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+/* Ссылки меню */
 .nav-links a {
     color: #94a3b8;
     text-decoration: none;
@@ -41,7 +98,7 @@ body {
 /* Главный экран */
 .hero {
     text-align: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
     background: radial-gradient(circle at center, #2e1065 0%, #08070b 60%);
 }
 
@@ -80,7 +137,7 @@ body {
 
 .download-btn:hover {
     transform: scale(1.05);
-    background: #c084fc; /* Цвет кнопки станет чуть ярче при наведении */
+    background: #c084fc;
     box-shadow: 0 0 45px rgba(168, 85, 247, 0.9);
 }
 
@@ -88,7 +145,7 @@ body {
 .features {
     padding: 40px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 80px auto; /* Добавили отступ снизу, чтобы появилась прокрутка */
 }
 
 .bento-grid {
@@ -99,11 +156,10 @@ body {
 
 .bento-card {
     background: #110f18;
-    border: 1px solid #1c1a24;
+    border: 1px solid rgba(168, 85, 247, 0.2);
     padding: 30px;
     border-radius: 16px;
     transition: 0.3s;
-    border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
 .bento-card h3 {
@@ -116,7 +172,6 @@ body {
     margin-bottom: 0;
 }
 
-/* Эффект при наведении на карточку */
 .bento-card:hover {
     border-color: #a855f7;
     transform: translateY(-5px);

@@ -10,38 +10,92 @@
 
     <!-- Навигация (Шапка сайта) -->
     <nav class="navbar">
-        <div class="logo">PIPKEIR <span>CROSS</span></div>
+        <div class="nav-left">
+            <div class="logo">PIPKEIR <span>CROSS</span></div>
+            <!-- Переключатель языков -->
+            <div class="lang-switch">
+                <button id="lang-ru" class="lang-btn active">RU</button>
+                <span>/</span>
+                <button id="lang-en" class="lang-btn">EN</button>
+            </div>
+        </div>
         <div class="nav-links">
-            <a href="#">Главная</a>
-            <a href="functions.html">Функции</a>
-            <a href="#">Скачать</a>
+            <a href="index.html" data-translate="nav-main">Главная</a>
+            <a href="functions.html" data-translate="nav-features">Функции</a>
+            <a href="#" data-translate="nav-download">Скачать</a>
         </div>
     </nav>
 
     <!-- Главный экран -->
     <header class="hero">
-        <h1>ТОПООРИЕНТИРОВАННЫЙ <br><span>ПРИЦЕЛ</span> ДЛЯ ИГР</h1>
-        <p>Кастомный оверлей, который дает преимущество в любом шутере. Без лагов, без банов, чисто под твой стиль.</p>
-        <a href="#" class="download-btn">ПОЛУЧИТЬ СОФТ</a>
+        <h1 data-translate="hero-title">ТОПООРИЕНТИРОВАННЫЙ <br><span>ПРИЦЕЛ</span> ДЛЯ ИГР</h1>
+        <p data-translate="hero-subtitle">Кастомный оверлей, который дает преимущество в любом шутере. Без лагов, без банов, чисто под твой стиль.</p>
+        <a href="#" class="download-btn" data-translate="hero-btn">ПОЛУЧИТЬ СОФТ</a>
     </header>
 
-    <!-- Карточки в стиле Бенто / Нурика -->
+    <!-- Карточки в стиле Бенто -->
     <section class="features">
         <div class="bento-grid">
-            <div class="bento-card card-glow">
-                <h3>🎯 Идеальный центр</h3>
-                <p>Прицел всегда четко по центру экрана, даже если игра его скрывает.</p>
+            <div class="bento-card">
+                <h3 data-translate="card1-title">🎯 Идеальный центр</h3>
+                <p data-translate="card1-desc">Прицел всегда четко по центру экрана, даже если игра его скрывает.</p>
             </div>
             <div class="bento-card">
-                <h3>⚡ Полноэкранный режим</h3>
-                <p>Стабильный оверлей поверх любых окон без потери FPS.</p>
+                <h3 data-translate="card2-title">⚡ Полноэкранный режим</h3>
+                <p data-translate="card2-desc">Стабильный оверлей поверх любых окон без потери FPS.</p>
             </div>
             <div class="bento-card">
-                <h3>🎨 Кастомизация</h3>
-                <p>Меняй цвет, размер и форму прямо на лету горячими клавишами.</p>
+                <h3 data-translate="card3-title">🎨 Кастомизация</h3>
+                <p data-translate="card3-desc">Меняй цвет, размер и форму прямо на лету горячими клавишами.</p>
             </div>
         </div>
     </section>
 
+    <!-- Скрипт для переключения языков -->
+    <script>
+        const translations = {
+            ru: {
+                "nav-main": "Главная", "nav-features": "Функции", "nav-download": "Скачать",
+                "hero-title": "ТОПООРИЕНТИРОВАННЫЙ <br><span>ПРИЦЕЛ</span> ДЛЯ ИГР",
+                "hero-subtitle": "Кастомный оверлей, который дает преимущество в любом шутере. Без лагов, без банов, чисто под твой стиль.",
+                "hero-btn": "ПОЛУЧИТЬ СОФТ",
+                "card1-title": "🎯 Идеальный центр", "card1-desc": "Прицел всегда четко по центру экрана, даже если игра его скрывает.",
+                "card2-title": "⚡ Полноэкранный режим", "card2-desc": "Стабильный оверлей поверх любых окон без потери FPS.",
+                "card3-title": "🎨 Кастомизация", "card3-desc": "Меняй цвет, размер и форму прямо на лету горячими клавишами."
+            },
+            en: {
+                "nav-main": "Home", "nav-features": "Features", "nav-download": "Download",
+                "hero-title": "TOP-TIER <br><span>CROSSHAIR</span> FOR GAMES",
+                "hero-subtitle": "Custom overlay that gives you an edge in any shooter. No lags, no bans, tailored exactly to your style.",
+                "hero-btn": "GET SOFTWARE",
+                "card1-title": "🎯 Perfect Center", "card1-desc": "The crosshair is always perfectly centered, even if the game hides it.",
+                "card2-title": "⚡ Fullscreen Mode", "card2-desc": "Stable overlay on top of any window with zero FPS loss.",
+                "card3-title": "🎨 Customization", "card3-desc": "Change color, size, and shape on the fly using hotkeys."
+            }
+        };
+
+        const btnRu = document.getElementById('lang-ru');
+        const btnEn = document.getElementById('lang-en');
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            document.title = lang === 'ru' ? 'PIPKEIR CROSSHAIR — Лучший прицел для шутеров' : 'PIPKEIR CROSSHAIR — Best Crosshair Overlay';
+        }
+
+        btnRu.addEventListener('click', () => {
+            btnRu.classList.add('active'); btnEn.classList.remove('active');
+            setLanguage('ru');
+        });
+
+        btnEn.addEventListener('click', () => {
+            btnEn.classList.add('active'); btnRu.classList.remove('active');
+            setLanguage('en');
+        });
+    </script>
 </body>
 </html>
