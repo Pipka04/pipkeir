@@ -107,13 +107,16 @@
         const btnRu = document.getElementById('lang-ru');
         const btnEn = document.getElementById('lang-en');
 
-        function setLanguage(lang) {
+                function setLanguage(lang) {
             document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
-                if (translations[lang][key]) { el.innerHTML = translations[lang][key]; }
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
             });
             document.title = lang === 'ru' ? 'PIPKEIR CROSSHAIR — Лучший прицел для шутеров' : 'PIPKEIR CROSSHAIR — Best Crosshair Overlay';
         }
+
 
         btnRu.addEventListener('click', () => { btnRu.classList.add('active'); btnEn.classList.remove('active'); setLanguage('ru'); });
         btnEn.addEventListener('click', () => { btnEn.classList.add('active'); btnRu.classList.remove('active'); setLanguage('en'); });
