@@ -8,36 +8,76 @@
 </head>
 <body>
 
-    <!-- Шапка (чтобы можно было вернуться назад) -->
+    <!-- Шапка -->
     <nav class="navbar">
-        <div class="logo">PIPKEIR <span>CROSS</span></div>
+        <div class="nav-left">
+            <div class="logo">PIPKEIR <span>CROSS</span></div>
+            <div class="lang-switch">
+                <button id="lang-ru" class="lang-btn active">RU</button>
+                <span>/</span>
+                <button id="lang-en" class="lang-btn">EN</button>
+            </div>
+        </div>
         <div class="nav-links">
-            <a href="index.html">← На главную</a>
+            <a href="index.html" data-translate="nav-back">← На главную</a>
         </div>
     </nav>
 
     <!-- Блок с подробным разбором -->
     <header class="hero">
-        <h1>ПОДРОБНЫЙ РАЗБОР <span>ФУНКЦИЙ</span></h1>
-        <p>Здесь всё то, что делает наш софт лучшим на рынке.</p>
+        <h1 data-translate="func-title">ПОДРОБНЫЙ РАЗБОР <span>ФУНКЦИЙ</span></h1>
+        <p data-translate="func-subtitle">Здесь всё то, что мы упаковали в наш софт для твоего максимального комфорта.</p>
     </header>
 
-        <section class="features">
+    <section class="features">
         <div class="bento-grid">
             <div class="bento-card">
-                <h3>📊 Смарт-оверлей</h3>
-                <p>Аккуратный мониторинг в левом верхнем углу экрана. Показывает точный подсчет FPS и текущее время прямо во время игры.</p>
+                <h3 data-translate="f-card1-title">📊 Смарт-оверлей</h3>
+                <p data-translate="f-card1-desc">Удобный информер в левом верхнем углу экрана. Отслеживай точный подсчет FPS и реальное время, не отвлекаясь от катки.</p>
             </div>
             <div class="bento-card">
-                <h3>⌨️ Удобное меню</h3>
-                <p>Красивый и понятный оверлей, который открывается прямо поверх игры. Настраивай всё на лету за пару кликов.</p>
+                <h3 data-translate="f-card2-title">🎯 Точный прицел</h3>
+                <p data-translate="f-card2-desc">Кастомный маркер ровно по центру монитора. Помогает разносить кабины от бедра в любом шутере, даже если игра скрывает прицел.</p>
             </div>
             <div class="bento-card">
-                <h3>🎨 Полная настройка</h3>
-                <p>Создай свой идеальный прицел: меняй цвет, размер, толщину линий и форму под свой личный стиль и разрешение монитора.</p>
+                <h3 data-translate="f-card3-title">🎨 Полная настройка</h3>
+                <p data-translate="f-card3-desc">Полная свобода кастомизации под твой стиль: меняй цвета, размеры шрифтов, форму прицела и прозрачность элементов в один клик.</p>
             </div>
         </div>
     </section>
 
+    <script>
+        const translations = {
+            ru: {
+                "nav-back": "← На главную",
+                "func-title": "ПОДРОБНЫЙ РАЗБОР <span>ФУНКЦИЙ</span>",
+                "func-subtitle": "Здесь всё то, что мы упаковали в наш софт для твоего максимального комфорта.",
+                "f-card1-title": "📊 Смарт-оверлей", "f-card1-desc": "Удобный информер в левом верхнем углу экрана. Отслеживай точный подсчет FPS и реальное время, не отвлекаясь от катки.",
+                "f-card2-title": "🎯 Точный прицел", "f-card2-desc": "Кастомный маркер ровно по центру монитора. Помогает разносить кабины от бедра в любом шутере, даже если игра скрывает прицел.",
+                "f-card3-title": "🎨 Полная настройка", "f-card3-desc": "Полная свобода кастомизации под твой стиль: меняй цвета, размеры шрифтов, форму прицела и прозрачность элементов в один клик."
+            },
+            en: {
+                "nav-back": "← Back Home",
+                "func-title": "DETAILED <span>FEATURES</span> OVERVIEW",
+                "func-subtitle": "Here is everything we packed into our software for your maximum comfort.",
+                "f-card1-title": "📊 Smart Overlay", "f-card1-desc": "Convenient informer in the top left corner. Track exact FPS and real time without distracting from the match.",
+                "f-card2-title": "🎯 Precision Crosshair", "f-card2-desc": "Custom marker exactly in the center of your screen. Helps you land hip-fire shots even if the game hides crosshairs.",
+                "f-card3-title": "🎨 Full Customization", "f-card3-desc": "Complete freedom to match your style: change colors, font sizes, crosshair shapes, and element transparency in one click."
+            }
+        };
+
+        const btnRu = document.getElementById('lang-ru');
+        const btnEn = document.getElementById('lang-en');
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang][key]) { el.innerHTML = translations[lang][key]; }
+            });
+        }
+
+        btnRu.addEventListener('click', () => { btnRu.classList.add('active'); btnEn.classList.remove('active'); setLanguage('ru'); });
+        btnEn.addEventListener('click', () => { btnEn.classList.add('active'); btnRu.classList.remove('active'); setLanguage('en'); });
+    </script>
 </body>
 </html>
