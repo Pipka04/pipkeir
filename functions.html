@@ -8,12 +8,6 @@
 </head>
 <body>
     
-        <!-- Кастомная боковая панель PIPKEIR -->
-    <div class="sidebar-socials">
-        <a href="https://t.me/pipkair" target="_blank" class="sidebar-icon" title="Telegram">TG</a>
-        <div class="sidebar-line"></div>
-    </div>
-
     <!-- Шапка -->
     <nav class="navbar">
         <div class="nav-left">
@@ -61,6 +55,7 @@
                 "f-card1-title": "📊 Смарт-оверлей", "f-card1-desc": "Удобный информер в левом верхнем углу экрана. Отслеживай точный подсчет FPS и реальное время, не отвлекаясь от катки.",
                 "f-card2-title": "🎯 Точный прицел", "f-card2-desc": "Кастомный маркер ровно по центру монитора. Помогает разносить кабины от бедра в любом шутере, даже если игра скрывает прицел.",
                 "f-card3-title": "🎨 Полная настройка", "f-card3-desc": "Полная свобода кастомизации под твой стиль: меняй цвета, размеры шрифтов, форму прицела и прозрачность элементов в один клик."
+                "footer-social": "Наши соцсети:",
             },
             en: {
                 "nav-back": "← Back Home",
@@ -69,6 +64,7 @@
                 "f-card1-title": "📊 Smart Overlay", "f-card1-desc": "Convenient informer in the top left corner. Track exact FPS and real time without distracting from the match.",
                 "f-card2-title": "🎯 Precision Crosshair", "f-card2-desc": "Custom marker exactly in the center of your screen. Helps you land hip-fire shots even if the game hides crosshairs.",
                 "f-card3-title": "🎨 Full Customization", "f-card3-desc": "Complete freedom to match your style: change colors, font sizes, crosshair shapes, and element transparency in one click."
+                "footer-social": "Our socials:",
             }
         };
 
@@ -85,5 +81,18 @@
         btnRu.addEventListener('click', () => { btnRu.classList.add('active'); btnEn.classList.remove('active'); setLanguage('ru'); });
         btnEn.addEventListener('click', () => { btnEn.classList.add('active'); btnRu.classList.remove('active'); setLanguage('en'); });
     </script>
+        <!-- Стильный подвал сайта -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>© 2026 PIPKEIR CROSS. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <span data-translate="footer-social">Наши соцсети:</span>
+                <a href="https://t.me/pipkair" target="_blank" class="footer-tg-btn">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

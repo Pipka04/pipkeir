@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <!-- Кастомная боковая панель PIPKEIR -->
-    <div class="sidebar-socials">
-        <a href="https://t.me/pipkair" target="_blank" class="sidebar-icon" title="Telegram">TG</a>
-        <div class="sidebar-line"></div>
-    </div>
 
     <!-- Навигация (Шапка сайта) -->
     <nav class="navbar">
@@ -91,6 +86,7 @@
                 "card1-title": "🎯 Идеальный центр", "card1-desc": "Прицел всегда четко по центру экрана, даже если игра его скрывает.",
                 "card2-title": "⚡ Полноэкранный режим", "card2-desc": "Стабильный оверлей поверх любых окон без потери FPS.",
                 "card3-title": "🎨 Кастомизация", "card3-desc": "Меняй цвет, размер и форму прямо на лету горячими клавишами."
+                "footer-social": "Наши соцсети:",
             },
             en: {
                 "nav-main": "Home", "nav-features": "Features", "nav-download": "Download",
@@ -104,6 +100,7 @@
                 "card1-title": "🎯 Perfect Center", "card1-desc": "The crosshair is always perfectly centered, even if the game hides it.",
                 "card2-title": "⚡ Fullscreen Mode", "card2-desc": "Stable overlay on top of any window with zero FPS loss.",
                 "card3-title": "🎨 Customization", "card3-desc": "Change color, size, and shape on the fly using hotkeys."
+                "footer-social": "Our socials:",
             }
         };
 
@@ -121,5 +118,19 @@
         btnRu.addEventListener('click', () => { btnRu.classList.add('active'); btnEn.classList.remove('active'); setLanguage('ru'); });
         btnEn.addEventListener('click', () => { btnEn.classList.add('active'); btnRu.classList.remove('active'); setLanguage('en'); });
     </script>
+
+        <!-- Стильный подвал сайта -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>© 2026 PIPKEIR CROSS. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <span data-translate="footer-social">Наши соцсети:</span>
+                <a href="https://t.me/pipkair" target="_blank" class="footer-tg-btn">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
