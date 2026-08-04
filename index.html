@@ -72,55 +72,83 @@
         </div>
     </section>
 
+        <!-- Скрипт для переключения языков (Финальный рабочий вариант) -->
     <script>
         const translations = {
             ru: {
-                "nav-main": "Главная", "nav-features": "Функции", "nav-download": "Скачать",
+                "nav-main": "Главная", 
+                "nav-features": "Функции", 
+                "nav-download": "Скачать",
                 "hero-title": "ТОПООРИЕНТИРОВАННЫЙ <br><span>ПРИЦЕЛ</span> ДЛЯ ИГР",
                 "hero-subtitle": "Кастомный оверлей, который дает преимущество в любом шутере. Без лагов, без банов, чисто под твой стиль.",
                 "hero-btn": "ПОЛУЧИТЬ СОФТ",
                 "how-title": "БЫСТРЫЙ <span>СТАРТ</span>",
-                "step1-title": "Скачай и запусти", "step1-desc": "Программа не требует установки. Просто запусти .exe файл от имени администратора.",
-                "step2-title": "Настрой под себя", "step2-desc": "Выбери идеальный цвет прицела, включи отображение FPS и настрой бинды.",
-                "step3-title": "Залетай в катку", "step3-desc": "Софт работает поверх любых игр. Разноси кабины с идеальным контролем центра.",
-                "card1-title": "🎯 Идеальный центр", "card1-desc": "Прицел всегда четко по центру экрана, даже если игра его скрывает.",
-                "card2-title": "⚡ Полноэкранный режим", "card2-desc": "Стабильный оверлей поверх любых окон без потери FPS.",
-                "card3-title": "🎨 Кастомизация", "card3-desc": "Меняй цвет, размер и форму прямо на лету горячими клавишами."
-                "footer-social": "Наши соцсети:",
+                "step1-title": "Скачай и запусти", 
+                "step1-desc": "Программа не требует установки. Просто запусти .exe файл от имени администратора.",
+                "step2-title": "Настрой под себя", 
+                "step2-desc": "Выбери идеальный цвет прицела, включи отображение FPS и настрой бинды.",
+                "step3-title": "Залетай в катку", 
+                "step3-desc": "Софт работает поверх любых игр. Разноси кабины с идеальным контролем центра.",
+                "card1-title": "🎯 Идеальный центр", 
+                "card1-desc": "Прицел всегда четко по центру экрана, даже если игра его скрывает.",
+                "card2-title": "⚡ Полноэкранный режим", 
+                "card2-desc": "Стабильный оверлей поверх любых окон без потери FPS.",
+                "card3-title": "🎨 Кастомизация", 
+                "card3-desc": "Меняй цвет, размер и форму прямо на лету горячими клавишами.",
+                "footer-social": "Наши соцсети:"
             },
             en: {
-                "nav-main": "Home", "nav-features": "Features", "nav-download": "Download",
+                "nav-main": "Home", 
+                "nav-features": "Features", 
+                "nav-download": "Download",
                 "hero-title": "TOP-TIER <br><span>CROSSHAIR</span> FOR GAMES",
                 "hero-subtitle": "Custom overlay that gives you an edge in any shooter. No lags, no bans, tailored exactly to your style.",
                 "hero-btn": "GET SOFTWARE",
                 "how-title": "QUICK <span>START</span>",
-                "step1-title": "Download & Run", "step1-desc": "The program requires no installation. Just run the .exe file as administrator.",
-                "step2-title": "Customize It", "step2-desc": "Choose your perfect crosshair color, enable FPS counter, and set up your hotkeys.",
-                "step3-title": "Enter the Game", "step3-desc": "The software works on top of any game. Dominate with absolute center control.",
-                "card1-title": "🎯 Perfect Center", "card1-desc": "The crosshair is always perfectly centered, even if the game hides it.",
-                "card2-title": "⚡ Fullscreen Mode", "card2-desc": "Stable overlay on top of any window with zero FPS loss.",
-                "card3-title": "🎨 Customization", "card3-desc": "Change color, size, and shape on the fly using hotkeys."
-                "footer-social": "Our socials:",
+                "step1-title": "Download & Run", 
+                "step1-desc": "The program requires no installation. Just run the .exe file as administrator.",
+                "step2-title": "Customize It", 
+                "step2-desc": "Choose your perfect crosshair color, enable FPS counter, and set up your hotkeys.",
+                "step3-title": "Enter the Game", 
+                "step3-desc": "The software works on top of any game. Dominate with absolute center control.",
+                "card1-title": "🎯 Perfect Center", 
+                "card1-desc": "The crosshair is always perfectly centered, even if the game hides it.",
+                "card2-title": "⚡ Fullscreen Mode", 
+                "card2-desc": "Stable overlay on top of any window with zero FPS loss.",
+                "card3-title": "🎨 Customization", 
+                "card3-desc": "Change color, size, and shape on the fly using hotkeys.",
+                "footer-social": "Our socials:"
             }
         };
 
         const btnRu = document.getElementById('lang-ru');
         const btnEn = document.getElementById('lang-en');
 
-                function setLanguage(lang) {
+        function setLanguage(lang) {
             document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
-                if (translations[lang][key]) {
+                if (translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
                 }
             });
             document.title = lang === 'ru' ? 'PIPKEIR CROSSHAIR — Лучший прицел для шутеров' : 'PIPKEIR CROSSHAIR — Best Crosshair Overlay';
         }
 
+        if (btnRu && btnEn) {
+            btnRu.addEventListener('click', () => {
+                btnRu.classList.add('active');
+                btnEn.classList.remove('active');
+                setLanguage('ru');
+            });
 
-        btnRu.addEventListener('click', () => { btnRu.classList.add('active'); btnEn.classList.remove('active'); setLanguage('ru'); });
-        btnEn.addEventListener('click', () => { btnEn.classList.add('active'); btnRu.classList.remove('active'); setLanguage('en'); });
+            btnEn.addEventListener('click', () => {
+                btnEn.classList.add('active');
+                btnRu.classList.remove('active');
+                setLanguage('en');
+            });
+        }
     </script>
+
 
         <!-- Стильный подвал сайта -->
     <footer class="site-footer">
