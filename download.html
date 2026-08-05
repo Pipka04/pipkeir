@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачать PIPKAIR CROSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">PIPKAIR <span>CROSS</span></div>
+            <div class="lang-switch">
+                <button id="lang-ru" class="lang-btn active">RU</button>
+                <span>/</span>
+                <button id="lang-en" class="lang-btn">EN</button>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" data-translate="nav-back">← На главную</a>
+        </div>
+    </nav>
+
+    <!-- Блок скачивания -->
+    <section class="download-section">
+        <div class="download-container">
+            <h1 data-translate="dl-title">СКАЧАТЬ <span>PIPKAIR CROSS</span></h1>
+            
+            <div class="versions-list">
+                <!-- ТВОЯ ЕДИНСТВЕННАЯ ВЕРСИЯ V0.0.1 -->
+                <div class="version-card latest">
+                    <div class="version-header">
+                        <h3>PIPKAIR CROSS v0.0.1 <span>LATEST</span></h3>
+                        <a href="https://github.com/Pipka04/pipkeir/releases/download/v0.0.1/Pipkair_officialReliz.zip" target="_blank" class="v-download-btn" data-translate="dl-now">Скачать .zip</a>
+                        <a href="https://www.virustotal.com/gui/file/ab6d39a7f9d7e08a88766c8b50f7f123a8ba24629485a769ffe6e9e5045e0f28?nocache=1" target="_blank" class="vt-btn">🛡️ Проверить на VirusTotal (0/64)</a>
+                    </div>
+                    <div class="version-body">
+                        <h5 data-translate="v01-features">📋 Описание релиза:</h5>
+                        <ul>
+                            <li data-translate="v01-f1">Первая публичная альфа-версия софта. Добавлен базовый прицел по центру экрана и счетчик FPS со временем.</li>
+                        </ul>
+                        <h5 class="critical-bug" data-translate="v01-bugs">❌ Проблемы и баги (Известные косяки):</h5>
+                        <ul>
+                            <li data-translate="v01-b1">Проблемы с оптимизацией: программа не оптимизированна.</li>
+                            <li data-translate="v01-b2">Присутствуют мелкие баги.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>© 2026 PIPKAIR CROSS. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <span data-translate="footer-social">Наши соцсети:</span>
+                <a href="https://t.me/pipkair" target="_blank" class="footer-tg-btn">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+                const translations = {
+            ru: {
+                "nav-back": "← На главную",
+                "dl-title": "СКАЧАТЬ <span>PIPKEIR CROSS</span>",
+                "dl-now": "Скачать .zip",
+                "v01-features": "📋 Описание релиза:",
+                "v01-f1": "Первая публичная альфа версия софта. Добавлен базовый прицел по центру экрана и счетчик FPS со временем.",
+                "v01-bugs": "❌ Проблемы и баги (Известные косяки):",
+                "v01-b1": "Проблемы с оптимизацией: программа не оптимизирована.",
+                "v01-b2": "Присутствуют мелкие баги.",
+                "footer-social": "Наши соцсети:"
+            },
+            en: {
+                "nav-back": "← Back Home",
+                "dl-title": "DOWNLOAD <span>PIPKEIR CROSS</span>",
+                "dl-now": "Download .zip",
+                "v01-features": "📋 Release description:",
+                "v01-f1": "First public alpha version. Added basic center crosshair, FPS counter, and clock overlay.",
+                "v01-bugs": "❌ Known Bugs & Issues:",
+                "v01-b1": "Optimization issues: the program is not optimized yet.",
+                "v01-b2": "Minor bugs are present.",
+                "footer-social": "Our socials:"
+            }
+        };
+
+        const btnRu = document.getElementById('lang-ru');
+        const btnEn = document.getElementById('lang-en');
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) { el.innerHTML = translations[lang][key]; }
+            });
+        }
+
+        if (btnRu && btnEn) {
+            btnRu.addEventListener('click', () => { btnRu.classList.add('active'); btnEn.classList.remove('active'); setLanguage('ru'); });
+            btnEn.addEventListener('click', () => { btnEn.classList.add('active'); btnRu.classList.remove('active'); setLanguage('en'); });
+        }
+    </script>
+</body>
+</html>
