@@ -281,3 +281,57 @@ body {
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
     transform: translateY(-2px);
 }
+ /* Секция: Безопасность и прозрачность (Блок доверия) */
+.trust-info {
+    background-color: #0c0b12;
+    border-top: 1px solid #1c1a24;
+    border-bottom: 1px solid #1c1a24;
+    padding: 80px 40px;
+}
+
+.trust-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.trust-info h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 50px;
+}
+
+.trust-info h2 span {
+    color: #a855f7;
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+.trust-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    text-align: left;
+    justify-content: center;
+}
+
+.trust-box {
+    flex: 1;
+    min-width: 280px;
+    background: #110f18;
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px dashed rgba(168, 85, 247, 0.2); /* Стильная пунктирная рамка */
+}
+
+.trust-box h4 {
+    margin: 0 0 15px 0;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.trust-box p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
