@@ -428,17 +428,25 @@ body {
         transform: translateY(0);
     }
 }
-/* --- Новые стильные плашки для страницы скачивания --- */
+/* --- Финальный премиум-дизайн страницы скачивания --- */
+.download-section {
+    position: relative;
+    overflow: hidden; /* Чтобы сфера не ломала прокрутку сайта */
+    padding: 60px 20px;
+}
+
 .download-section .container {
-    max-width: 1000px;
+    max-width: 800px; /* СУЗИЛИ БЛОК, чтобы он аккуратно стоял по центру */
     margin: 0 auto;
+    position: relative;
+    z-index: 2; /* Выталкиваем текст поверх крутящейся сферы */
 }
 
 .download-section h1 {
     text-align: center;
     font-size: 3rem;
     font-weight: 900;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     letter-spacing: 1px;
 }
 
@@ -447,52 +455,54 @@ body {
     text-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
 }
 
-/* Сама большая карточка релиза */
+/* Сама карточка релиза */
 .version-card.latest {
-    background: #0f0d14;
-    border: 1px solid #1c1a24;
+    background: rgba(17, 15, 24, 0.85); /* Сделали слегка прозрачной, чтобы сфера просвечивала */
+    border: 1px solid rgba(168, 85, 247, 0.2);
     border-radius: 24px;
     padding: 35px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px); /* Красивое размытие заднего фона */
     animation: fadeInCard 0.8s ease-out forwards;
 }
 
 .version-body {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Отступ между фиолетовой и красной плашкой */
+    gap: 20px;
 }
 
 /* Общий стиль для плашек */
 .info-plate {
     padding: 25px;
     border-radius: 16px;
-    transition: 0.3s ease;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Стиль фиолетовой плашки релиза */
 .release-plate {
-    background: rgba(168, 85, 247, 0.03);
-    border: 1px solid rgba(168, 85, 247, 0.15);
+    background: rgba(168, 85, 247, 0.02);
+    border: 1px solid rgba(168, 85, 247, 0.12);
 }
 .release-plate:hover {
-    border-color: rgba(168, 85, 247, 0.4);
-    background: rgba(168, 85, 247, 0.05);
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(168, 85, 247, 0.06);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
+    transform: translateX(5px); /* Плашка мягко сдвинется вправо при наведении */
 }
 
 /* Стиль агрессивной красной плашки багов */
 .bug-plate {
-    background: rgba(239, 68, 68, 0.02);
-    border: 1px solid rgba(239, 68, 68, 0.1);
+    background: rgba(239, 68, 68, 0.01);
+    border: 1px solid rgba(239, 68, 68, 0.08);
 }
 .bug-plate:hover {
-    border-color: rgba(239, 68, 68, 0.3);
+    border-color: rgba(239, 68, 68, 0.4);
     background: rgba(239, 68, 68, 0.04);
-    box-shadow: 0 0 25px rgba(239, 68, 68, 0.05);
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.1);
+    transform: translateX(5px);
 }
 
-/* Красивые кастомные списки внутри плашек */
 .info-plate h5 {
     margin: 0 0 15px 0;
     font-size: 1.15rem;
@@ -502,7 +512,7 @@ body {
 .info-plate ul {
     margin: 0;
     padding-left: 5px;
-    list-style: none; /* Убираем стандартные уродливые точки */
+    list-style: none;
 }
 
 .info-plate li {
@@ -518,7 +528,7 @@ body {
     margin-bottom: 0;
 }
 
-/* Светящиеся маркеры вместо точек */
+/* Светящиеся маркеры */
 .release-plate li::before {
     content: "•";
     color: #a855f7;
@@ -537,4 +547,49 @@ body {
     position: absolute;
     left: 5px;
     top: -4px;
+}
+
+/* --- МАГИЯ: КРУТЯЩАЯСЯ НЕОНОВАЯ СФЕРА НА ФОНЕ --- */
+.download-section::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+    top: 20%;
+    left: -100px; /* Разместили сферу слева на заднем плане */
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    animation: rotateSphere 8s linear infinite; /* Запускаем кручение */
+    filter: blur(20px);
+}
+
+/* Добавим вторую сферу справа для баланса */
+.download-section::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(46, 16, 101, 0.4) 0%, transparent 70%);
+    bottom: 10%;
+    right: -50px; /* Разместили сферу справа внизу */
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    animation: rotateSphere 12s linear infinite reverse; /* Крутится в обратную сторону */
+    filter: blur(30px);
+}
+
+/* Анимация плавного вращения и перелива сферы */
+@keyframes rotateSphere {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1); /* Сфера будет слегка пульсировать */
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
 }
