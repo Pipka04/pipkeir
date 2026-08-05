@@ -335,18 +335,56 @@ body {
     line-height: 1.6;
     margin: 0;
 }
- /* --- Кнопка VirusTotal в секции скачивания --- */
+ /* --- Исправление выравнивания кнопок в релизе --- */
+.version-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1c1a24;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Специальный контейнер, чтобы кнопки выстраивались в красивый ровный ряд */
+.version-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.v-download-btn {
+    display: inline-block;
+    background: #a855f7;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+}
+
+.v-download-btn:hover {
+    background: #c084fc;
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Кнопка VirusTotal теперь аккуратно встанет рядом без лишних верхних отступов */
 .vt-btn {
     display: inline-block;
-    background: rgba(34, 197, 94, 0.05); /* Легкий прозрачный зеленый фон */
-    border: 1px dashed #22c55e; /* Пунктирная зеленая рамка */
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px dashed #22c55e;
     color: #22c55e;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 8px;
     font-weight: 700;
     font-size: 0.85rem;
-    margin-top: 15px; /* Отступ от кнопки скачивания */
     transition: 0.3s ease;
 }
 

@@ -33,17 +33,19 @@
                 <div class="version-card latest">
                     <div class="version-header">
                         <h3>PIPKAIR CROSS v0.0.1 <span>LATEST</span></h3>
-                        <a href="https://github.com/Pipka04/pipkeir/releases/download/v0.0.1/Pipkair_officialReliz.zip" target="_blank" class="v-download-btn" data-translate="dl-now">Скачать .zip</a>
-                        <a href="https://www.virustotal.com/gui/file/ab6d39a7f9d7e08a88766c8b50f7f123a8ba24629485a769ffe6e9e5045e0f28?nocache=1" target="_blank" class="vt-btn">🛡️ Проверить на VirusTotal (0/64)</a>
+                        <div class="version-actions">
+                            <a href="https://github.com/Pipka04/pipkeir/releases/download/v0.0.1/Pipkair_officialReliz.zip" class="v-download-btn" data-translate="dl-now">Скачать .zip</a>
+                            <a href="https://www.virustotal.com/gui/file/ab6d39a7f9d7e08a88766c8b50f7f123a8ba24629485a769ffe6e9e5045e0f28?nocache=1" target="_blank" class="vt-btn">🛡️ Проверить на VirusTotal (0/64)</a>
+                        </div>
                     </div>
                     <div class="version-body">
                         <h5 data-translate="v01-features">📋 Описание релиза:</h5>
                         <ul>
-                            <li data-translate="v01-f1">Первая публичная альфа-версия софта. Добавлен базовый прицел по центру экрана и счетчик FPS со временем.</li>
+                            <li data-translate="v01-f1">Первая публичная альфа версия софта. Добавлен базовый прицел по центру экрана и счетчик FPS со временем.</li>
                         </ul>
                         <h5 class="critical-bug" data-translate="v01-bugs">❌ Проблемы и баги (Известные косяки):</h5>
                         <ul>
-                            <li data-translate="v01-b1">Проблемы с оптимизацией: программа не оптимизированна.</li>
+                            <li data-translate="v01-b1">Проблемы с оптимизацией: программа не оптимизирована.</li>
                             <li data-translate="v01-b2">Присутствуют мелкие баги.</li>
                         </ul>
                     </div>
@@ -66,10 +68,10 @@
     </footer>
 
     <script>
-                const translations = {
+        const translations = {
             ru: {
                 "nav-back": "← На главную",
-                "dl-title": "СКАЧАТЬ <span>PIPKEIR CROSS</span>",
+                "dl-title": "СКАЧАТЬ <span>PIPKAIR CROSS</span>",
                 "dl-now": "Скачать .zip",
                 "v01-features": "📋 Описание релиза:",
                 "v01-f1": "Первая публичная альфа версия софта. Добавлен базовый прицел по центру экрана и счетчик FPS со временем.",
@@ -80,7 +82,7 @@
             },
             en: {
                 "nav-back": "← Back Home",
-                "dl-title": "DOWNLOAD <span>PIPKEIR CROSS</span>",
+                "dl-title": "DOWNLOAD <span>PIPKAIR CROSS</span>",
                 "dl-now": "Download .zip",
                 "v01-features": "📋 Release description:",
                 "v01-f1": "First public alpha version. Added basic center crosshair, FPS counter, and clock overlay.",
@@ -99,6 +101,7 @@
                 const key = el.getAttribute('data-translate');
                 if (translations[lang] && translations[lang][key]) { el.innerHTML = translations[lang][key]; }
             });
+            document.title = lang === 'ru' ? 'Скачать PIPKAIR CROSS' : 'Download PIPKAIR CROSS';
         }
 
         if (btnRu && btnEn) {
