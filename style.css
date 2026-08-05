@@ -428,3 +428,113 @@ body {
         transform: translateY(0);
     }
 }
+/* --- Новые стильные плашки для страницы скачивания --- */
+.download-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.download-section h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+.download-section h1 span {
+    color: #a855f7;
+    text-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+}
+
+/* Сама большая карточка релиза */
+.version-card.latest {
+    background: #0f0d14;
+    border: 1px solid #1c1a24;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: fadeInCard 0.8s ease-out forwards;
+}
+
+.version-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Отступ между фиолетовой и красной плашкой */
+}
+
+/* Общий стиль для плашек */
+.info-plate {
+    padding: 25px;
+    border-radius: 16px;
+    transition: 0.3s ease;
+}
+
+/* Стиль фиолетовой плашки релиза */
+.release-plate {
+    background: rgba(168, 85, 247, 0.03);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+}
+.release-plate:hover {
+    border-color: rgba(168, 85, 247, 0.4);
+    background: rgba(168, 85, 247, 0.05);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.1);
+}
+
+/* Стиль агрессивной красной плашки багов */
+.bug-plate {
+    background: rgba(239, 68, 68, 0.02);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+}
+.bug-plate:hover {
+    border-color: rgba(239, 68, 68, 0.3);
+    background: rgba(239, 68, 68, 0.04);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.05);
+}
+
+/* Красивые кастомные списки внутри плашек */
+.info-plate h5 {
+    margin: 0 0 15px 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.info-plate ul {
+    margin: 0;
+    padding-left: 5px;
+    list-style: none; /* Убираем стандартные уродливые точки */
+}
+
+.info-plate li {
+    position: relative;
+    padding-left: 25px;
+    color: #94a3b8;
+    margin-bottom: 10px;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.info-plate li:last-child {
+    margin-bottom: 0;
+}
+
+/* Светящиеся маркеры вместо точек */
+.release-plate li::before {
+    content: "•";
+    color: #a855f7;
+    text-shadow: 0 0 10px #a855f7;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 5px;
+    top: -4px;
+}
+
+.bug-plate li::before {
+    content: "•";
+    color: #ef4444;
+    text-shadow: 0 0 10px #ef4444;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 5px;
+    top: -4px;
+}
